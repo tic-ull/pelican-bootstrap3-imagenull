@@ -1,0 +1,13 @@
+{% if WORK_SUPPORTED_BY_HTML %}
+    <div class="panel panel-default panel-ull color-336699">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-institution"></i> Work supported by</h3>
+            </div>
+            <ul class="list-group" id="links">
+            {% for html in WORK_SUPPORTED_BY_HTML %}
+                <li class="list-group-item">{{ html }}</li>
+            {% endfor %}
+            </ul>
+            </div>
+    </div>
+{% endif %}

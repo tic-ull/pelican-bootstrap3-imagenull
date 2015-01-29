@@ -1,27 +1,3 @@
-body {
-    padding-top: 70px;
-}
-
-#sidebar .list-group, #sidebar .list-group-item {
-    background-color: transparent;
-}
-
-/* for list-groups nested within a list-group-item, reset the bottom margin */
-.list-group-item > .list-group {
-    margin-bottom: 0px;
-}
-
-/* for list-group-items nested within a list-group-item, reset the bottom
-   padding of the last item, b/c the containing item has paddimg already 
- */
-.list-group-item .list-group-item:last-child {
-    padding-bottom: 0px;
-}
-
-.list-group-item {
-    border: none;
-}
-
 .tag-0 {
     font-size: 16pt;
 }
@@ -42,50 +18,13 @@ body {
     font-size: 6pt;
 }
 
-#aboutme {
-    padding-top: 0px;
-    padding-bottom: 5px;
-    -ms-word-break: normal;
-    word-break: normal;
-}
-
-#sidebar {
-    padding-top: 0px;
-    -ms-word-break: break-all;
-    word-break: break-all;
-    word-break: break-word;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-}
-
-#sidebar a {
-    color: inherit;
-}
-
-.icon-label {
-    margin-left: 10px;
-}
-
-/* Example for how to control spacing between icon and label in specific
-   lists in the sidebar. To change, override in your CUSTOM_CSS           */
-#sidebar #social i {
-    margin-right: 3px;
-}
-
-a, a:hover {
-    color: inherit;
-}
-
-.entry-content a {
-    text-decoration: none;
-    border-bottom: 1px dotted;
-}
-
-.entry-content a:hover {
-    text-decoration: none;
-    border-bottom: 1px solid;
+.jumbotron {
+    background-color: #eeeeee;
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: center center;
+    margin-top: -15px;
+    height: 200px;
 }
 
 .entry-content img {
@@ -169,4 +108,20 @@ figure.floatcenter, .align-center {
 
 .tagcloud li {
     padding: 0px;
+}
+
+.masonry {
+    column-width: 18em;
+    -moz-column-width: 18em;
+    -webkit-column-width: 18em;
+    column-gap: 0em;
+    -moz-column-gap: 0em;
+    -webkit-column-gap:0em;
+    line-height: 0px;
+}
+
+.masonry .item {
+    display: inline-block;
+    padding: 1px;
+    width: 100%; 
 }

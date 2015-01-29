@@ -2,76 +2,80 @@
     {% set DISPLAY_TAGS_ON_SIDEBAR = True %}
 {% endif %}
 
-<section class="well well-sm">
-    <ul class="list-group list-group-flush">
-        {% if SOCIAL %}
-            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
-              <ul class="list-group" id="social">
+    {% if SOCIAL %}
+    <div class="panel panel-default panel-ull color-7A3B7A">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-home"></i> Social</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-pills nav-stacked" id="social">
                 {% for name, link in SOCIAL %}
                     {% set name_sanitized = name|lower|replace('+','-plus')|replace(' ','-') %}
                     {% if name_sanitized in ['flickr', 'spotify', 'stack-overflow'] %}
-                        {% set iconattributes = '"fa fa-' ~ name_sanitized ~ ' fa-lg"' %}
+                        {% set iconattributes = 'fa fa-' ~ name_sanitized ~ ' fa-lg' %}
                     {% else %}
-                        {% set iconattributes = '"fa fa-' ~ name_sanitized ~ '-square fa-lg"' %}
+                        {% set iconattributes = 'fa fa-' ~ name_sanitized ~ '-square fa-lg' %}
                     {% endif %}
-                <li class="list-group-item"><a href="{{ link }}"><i class={{ iconattributes }}></i> {{ name }}</a></li>
+                <li><a href="{{ link }}"><i class="{{ iconattributes }}" rel="publisher"></i> {{ name }}</a></li>
                 {% endfor %}
               </ul>
-            </li>
-        {% endif %}
+            </div>
+    </div>
+    {% endif %}
 
-        {% if DISPLAY_RECENT_POSTS_ON_SIDEBAR %}
+    {% if DISPLAY_RECENT_POSTS_ON_SIDEBAR %}
+    <div class="panel panel-default panel-ull color-7A3B7A">
             {% if RECENT_POST_COUNT is not defined %}
                 {% set RECENT_POST_COUNT = 5 %}
             {% endif %}
-            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
-                <ul class="list-group" id="recentposts">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-home"></i> Recent Posts</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-pills nav-stacked" id="recentposts">
                 {% for article in articles[:RECENT_POST_COUNT] %}
-                    <li class="list-group-item">
+                    <li>
                         <a href="{{ SITEURL }}/{{ article.url }}">
                             {{ article.title }}
                         </a>
                     </li>
                 {% endfor %}
                 </ul>
-            </li>
-        {% endif %}
+            </div>
+    </div>
+    {% endif %}
 
-        {% if DISPLAY_CATEGORIES_ON_SIDEBAR %}
-            <li class="list-group-item"><a href="{{ SITEURL }}/{{ CATEGORIES_URL }}"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
-                <ul class="list-group" id="categories">
+    {% if DISPLAY_CATEGORIES_ON_SIDEBAR %}
+    <div class="panel panel-default panel-ull">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-home"></i> <a href="{{ SITEURL }}/{{ CATEGORIES_URL }}">Categories</a></h3>
+            </div>
+            <div class="nav nav-pills nav-stacked" id="categories">
                 {% for cat, null in categories %}
-                    <li class="list-group-item">
-                        <a href="{{ SITEURL }}/{{ cat.url }}">
-                            <i class="fa fa-folder-open fa-lg"></i> {{ cat }}
-                        </a>
-                    </li>
+                    <a class="list-group-item" href="{{ SITEURL }}/{{ cat.url }}"><i class="fa fa-folder-open"></i> {{ cat }}</a>
                 {% endfor %}
-                </ul>
-            </li>
-        {% endif %}
+            </div>
+    </div>
+    {% endif %}
 
-        {% if DISPLAY_TAGS_ON_SIDEBAR %}
+    {% if DISPLAY_TAGS_ON_SIDEBAR %}
+    <div class="panel panel-default panel-ull">
             {% if DISPLAY_TAGS_INLINE %}
                 {% set tags = tag_cloud | sort(attribute='0') %}
             {% else %}
                 {% set tags = tag_cloud | sort(attribute='1') %}
             {% endif %}
-            <li class="list-group-item"><a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-                <ul class="list-group {% if DISPLAY_TAGS_INLINE %}list-inline tagcloud{% endif %}" id="tags">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-tags fa-lg"></i> <a href="{{ SITEURL }}/{{ TAGS_URL }}">Tags</a></h3>
+            </div>
+            <div class="list-group {% if DISPLAY_TAGS_INLINE %}list-inline tagcloud{% endif %}" id="tags">
                 {% for tag in tags %}
-                    <li class="list-group-item tag-{{ tag.1 }}">
-                        <a href="{{ SITEURL }}/{{ tag.0.url }}">
-                            {{ tag.0 }}
-                        </a>
-                    </li>
+                    <a class="list-group-item tag-{{ tag.1 }}" href="{{ SITEURL }}/{{ tag.0.url }}"> {{ tag.0 }}</a></li>
                 {% endfor %}
-                </ul>
-            </li>
-        {% endif %}
-        {% include 'includes/github.html' %}
-        {% include 'includes/twitter_timeline.html' %}
-        {% include 'includes/links.html' %}
-    </ul>
-</section>
-
+            </div>
+    </div>
+    {% endif %}
+    {% include 'includes/github.html' %}
+    {% include 'includes/twitter_timeline.html' %}
+    {% include 'includes/links.html' %}
+    {% include 'includes/supported.html' %}

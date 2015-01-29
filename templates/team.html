@@ -1,0 +1,33 @@
+{% extends "page.html" %}
+{% block content %}
+    <section id="content" class="body">
+        <h1 class="entry-title">{{ page.title }}</h1>
+        {% import 'includes/translations.html' as translations with context %}
+        {% for ou in page.organizations %}
+            <h3 name="{{ ou.name }}">{{ ou.name }}</h3>
+            <ul class="list-group">
+                {% for member in ou.members %}
+                    <li class="list-group-item list-group-item-{{ 'warning' if member.head }}">
+                        <div class="media-left" style="width: 100px;">
+                            <img src="{{ member.photo }} ">
+                        </div>
+                        <div class="media-body">
+                            <h4>{{ member.name }}</h4>
+                            {% set education = [member.education] if member.education is string else member.education|default([]) %}
+                            {% set affiliation = [member.affiliation] if member.affiliation is string else member.affiliation|default([]) %}
+                            <p>{{ (education + affiliation)|join('<br>') }}</p>
+                            {% if member.supportedby %}
+                                <div class="media">
+                                    <p>Work supported by:</p>
+                                    <div class="media-right">
+                                        {{ member.supportedby }}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </section>
+{% endblock %}

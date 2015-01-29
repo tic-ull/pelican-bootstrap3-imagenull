@@ -1,22 +1,23 @@
-<footer>
-   <div class="container">
-      <hr>
+<div id="footer">
+   <div class="container-fluid">
       <div class="row">
          {% if articles %}
             {% set copy_date = articles[0].date.strftime('%Y') %}
          {% else %}
             {% set copy_date = '' %}
          {% endif %}
-         <div class="col-xs-10">&copy; {{ copy_date }} {{ AUTHOR }}
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
-            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
-            {%- if CC_LICENSE or CC_LICENSE_DERIVATIVES or CC_LICENSE_COMMERCIAL %}
-              {% from 'includes/cc-license.html' import cc_license_mark %}
-              <p><small>{{ cc_license_mark(cc_name=CC_LICENSE,derivatives=CC_LICENSE_DERIVATIVES,commercial=CC_LICENSE_COMMERCIAL,attr_markup=CC_ATTR_MARKUP,attr_props={'title':SITENAME,'name':article.author if article else AUTHOR,'url':SITEURL}) }}</small></p>
-            {% endif %}
+         <div class="col-xs-12">
+            <ul class="address pull-left">
+                <li><strong>Universidad de La Laguna</strong><br> Pabellón de Gobierno, C/ Molinos de Agua s/n. | San Cristóbal de La Laguna, Santa Cruz de Tenerife - España (38200) | Teléfono: (+34) 922 31 90 00/01</li>
+            </ul>
+            <ul class="list-inline text-muted pull-right">
+                <li><a title="Facebook" target="_blank" href="http://www.facebook.com/universidaddelalaguna"><span class="fa fa-facebook-square"></span></a></li>
+                <li><a title="Tuenti" target="_blank" href="http://www.tuenti.com/#m=Page&amp;func=index&amp;page_key=1_160_68944913"><i class="fa fa-tumblr-square"></i></a></li>
+                <li><a title="Twitter" target="_blank" href="http://twitter.com/CanalULL"><i class="fa fa-twitter-square"></i></a></li>
+                <li><a title="LinkedIn" target="_blank" href="http://www.linkedin.com/groups/Universidad-Laguna-2656178"><i class="fa fa-linkedin-square"></i></a></li>
+                <li><a title="Página web ULL" target="_blank" href="http://www.ull.es"><i class="fa fa-globe"></i></a></li>
+            </ul>
          </div>
-         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
       </div>
    </div>
-</footer>
+</div>

@@ -29,6 +29,7 @@ This theme honors the following standard Pelican settings:
 * Template settings:
 	* `DISPLAY_PAGES_ON_MENU`
 	* `DISPLAY_CATEGORIES_ON_MENU`
+        * `DISPLAY_ARCHIVES_ON_MENU`
 	* `MENUITEMS`
 	* `LINKS` (Blogroll will be put in the sidebar instead of the head)
 * Analytics & Comments
@@ -40,12 +41,6 @@ This theme honors the following standard Pelican settings:
 It uses the `tag_cloud` variable for displaying tags in the sidebar. You can control the amount of tags shown with: `TAG_CLOUD_MAX_ITEMS`
 
 ## Extras
-
-### Bootswatch and other Bootstrap 3 themes
-
-Part of the versatility of this theme comes from the fact that I included all the lovely Bootstrap 3 themes from [Bootswatch](http://bootswatch.com/), built by [Thomas Park](https://github.com/thomaspark). You can tell Pelican what Bootswatch theme to use, by setting `BOOTSTRAP_THEME` to the desired theme, in lowercase (ie. 'readable' or 'cosmo' etc.). My own site is using _Simplex_. If you want to use any other Bootstrap 3 compatible theme, just put the minified CSS in the `static/css` directory and rename it using the following naming scheme: `bootstrap.{theme-name}.min.css`. Then update the `BOOTSTRAP_THEME` variable with the _theme-name_ used.
-
-#### Update: Readable has seen some major changes. I added the new version as 'readable' and renamed the old version to 'readable-old'. Update your config accordingly.
 
 ### Article info
 
@@ -113,10 +108,6 @@ By default the `SITENAME` will be shown as well. It's also possible to hide the 
 
 It's possible to show breadcrumbs in your site using the `DISPLAY_BREADCRUMBS` flag. By default the article category isn't shown in the breadcrumbs, if you wish to enable it, set the `DISPLAY_CATEGORY_IN_BREADCRUMBS` flag to _True_.
 
-### Navbar
-
-If you wish to use the inverse navbar from Bootstrap, set the flag `BOOTSTRAP_NAVBAR_INVERSE` to _True_.
-
 ### Related Posts
 
 This theme has support for the [Related Posts plugin](https://github.com/getpelican/pelican-plugins/tree/master/related_posts). All you have to do, is enable the plugin, and the theme will do the rest.
@@ -179,18 +170,6 @@ If you're using reStructuredText for writing articles and pages, you can include
 * Set DISQUS_ID_PREFIX_SLUG to _True_ if you have configured your article URLs such that the slug alone will likely not be unique. Ignored if DISQUS_NO_ID is _True_.
 * You can also enable Disqus comments for pages. This is a per-page setting you can control by adding a field `comments` to you pages' metadata. Set it to _enabled_ to enable comments for that page. Comment-threads for pages will have an id that is prefixed by 'page-'.
 * To show Disqus comment counts on the index page, set DISQUS_DISPLAY_COUNTS to _True_.
-
-### Content license
-
-You can optionally declare a [Creative Commons license](http://creativecommons.org) for the content of your site. It will appear in the site's footer. To enable, use one of the following two ways for configuration.
-
-* To choose the license by name, set `CC_LICENSE` to the common abbreviated name of the license: `"CC-BY"` (require attribution), `"CC-BY-SA"` (require ShareAlike), `"CC-BY-ND"` (NoDerivatives) , `"CC-BY-NC"` (require attribution, no commercial reuse), `"CC-BY-NC-SA"` (require ShareAlike, no commercial reuse), or `"CC-BY-NC-ND"` (NoDerivatives, no commercial reuse).
-* Alternatively, choose the licence by features:
-    * `CC_LICENSE_DERIVATIVES` - `"yes"` if permitted, `"no"` if not permitted, and `"ShareAlike"` if derivatives must be shared under the same terms.
-    * `CC_LICENSE_COMMERCIAL` - `"yes"` if commercial reuse is permitted, and `"no"` otherwise. 
-* Optionally, you can include attribution markup in the license mark by setting `CC_ATTR_MARKUP` to _True_.
-
-The license choice mirrors the [Creative Commons License Chooser](http://creativecommons.org/choose/). Source for the macro that renders the mark is at http://github.com/hlapp/cc-tools.
 
 ### GitHub
 
