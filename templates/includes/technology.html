@@ -1,0 +1,14 @@
+{% if TECHNOLOGY %}
+    <div class="panel panel-default panel-ull color-336699">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-cogs"></i> Tecnología</h3>
+            </div>
+            <div class="panel-body" style="text-align: center;">
+                <ul class="nav nav-pills nav-stacked">
+                {% for html in TECHNOLOGY %}
+                    <li><div class="media">{{ html }}</div></li>
+                {% endfor %}
+                </ul>
+            </div>
+    </div>
+{% endif %}

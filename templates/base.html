@@ -56,7 +56,11 @@
     {% include 'includes/twitter_cards.html' %}
 
     <!-- ULL -->
-    <link rel="stylesheet" href="//static.ull.es/v3/dist/css/ull.min.css" type="text/css"/>
+    {% if ULL_CSS_URL %}
+        <link rel="stylesheet" href="{{ ULL_CSS_URL }}" type="text/css"/>
+    {% else %}
+        <link rel="stylesheet" href="//static.ull.es/v3/dist/css/ull.min.css" type="text/css"/>
+    {% endif %}
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.0.3a/ekko-lightbox.min.css"/>
 
     <link href="{{ SITEURL }}/theme/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
@@ -131,7 +135,7 @@
                     <li><a href="{{ link }}">{{ title }}</a></li>
                 {% endfor %}
                 {% if DISPLAY_PAGES_ON_MENU %}
-                    {% for p in PAGES  %}
+                    {% for p in PAGES %}
                         <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.menulabel|default(p.title) }}</a></li>
                     {% endfor %}
                 {% endif %}
