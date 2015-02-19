@@ -170,6 +170,7 @@
                 {% include 'includes/aboutme.html' %}
             {% endif %}
             {% if not HIDE_SIDEBAR %}
+                {% include 'includes/github_repo.html' %}
                 {% block toc %}
                 {% endblock %}
                 {% include 'includes/sidebar.html' %}
