@@ -62,3 +62,12 @@
         </div>
     </section>
 {% endblock %}
+
+{% block toc %}
+    {% set block_title = 'Table of Contents' %}
+    {% if TOC_TITLE %}
+        {% set block_title = TOC_TITLE %}
+    {% endif %}
+    {% set toc = page.toc %}
+    {% include 'includes/toc.html' %}
+{% endblock %}
