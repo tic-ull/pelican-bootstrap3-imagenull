@@ -1,0 +1,15 @@
+
+{% if GENERIC_BLOCKS %}
+    {% for block in GENERIC_BLOCKS %}
+    <div class="panel panel-default panel-ull color-336699">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa {{block.fa_icon}}"></i> {{ block.title }}</h3>
+            </div>
+            <div class="panel-body">
+                {% for line in block.content %}
+                    {{ line }}
+                {% endfor %}
+            </div>
+    </div>
+    {% endfor %}
+{% endif %}
