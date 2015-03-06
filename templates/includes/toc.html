@@ -5,9 +5,11 @@
         </div>
         <div class="panel-body">
             <div class="nav nav-pills nav-stacked">
+                <ul>
                 {% for key, value in toc.iteritems() %}
                     <li><a href="#{{ key }}">{{ value }}</a></li>
                 {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
