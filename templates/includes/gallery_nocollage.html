@@ -3,14 +3,42 @@
     {% import 'includes/translations.html' as translations with context %}
     {% for album, images in page.gallery.iteritems() %}
         <h2 name="{{ album }}">{{ GALLERY_ALBUMS.get(album, album) }}</h2>
-        <div id="gallery-{{ album }}" class="masonry well">
+        <div id="owl-{{ album }}" class="owl-carousel">
             {% for image in images %}
-                <div class="item">
-                    <a href="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}" data-title="{{ image }}" data-toggle="lightbox" data-gallery="{{ album }}" data-parent="#gallery-{{ album }}" >
-                        <img src="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}" class="img-responsive">
-                    </a>
-                </div>
+                <div><img src="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}"/></div>
             {% endfor %}
         </div>
+        <script>
+            $(document).ready(function() {
+                $("#owl-{{ album }}").owlCarousel({
+                    stopOnHover : true,
+                    paginationSpeed : 1000,
+                    goToFirstSpeed : 2000,
+                    singleItem : true,
+                    autoHeight : true,
+                    transitionStyle:"fade"
+                });
+            });
+        </script>
     {% endfor %}
 </section>
+
+<style>
+    .owl-carousel .owl-item div{
+        padding:5px;
+    }
+    .owl-carousel .owl-item img{
+        display: block;
+        width: 88%;
+        margin: 0 auto;
+        height: auto;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+</style>
+
+<link rel="stylesheet" href="theme/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" href="theme/owl-carousel/owl.theme.css">
+<link rel="stylesheet" href="theme/owl-carousel/owl.transitions.css">
+<script src="theme/owl-carousel/owl.carousel.min.js"></script>

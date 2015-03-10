@@ -75,6 +75,12 @@
               title="{{ SITENAME }} RSS Feed"/>
     {% endif %}
 
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//static.ull.es/v3/dist/js/ull.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.0.3a/ekko-lightbox.js"></script>
+    {% if CUSTOM_JS %}
+        <script src="{{ SITEURL }}/{{ CUSTOM_JS }}"></script>
+    {% endif %}
 </head>
 <body>
 
@@ -180,16 +186,6 @@
     </div>
 </div>
 {% include 'includes/footer.html' %}
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="//static.ull.es/v3/dist/js/ull.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.0.3a/ekko-lightbox.js"></script>
-{% if CUSTOM_JS %}
-<script src="{{ SITEURL }}/{{ CUSTOM_JS }}"></script>
-{% endif %}
-
 {% include 'includes/github-js.html' %}
 {% include 'includes/disqus_script.html' %}
 {% include 'includes/ga.html' %}
