@@ -1,7 +1,7 @@
 {% extends "page.html" %}
 {% block content %}
-    {% if GALLERY_NOCOLLAGE %}
-        {% include 'includes/gallery_nocollage.html' %}
+    {% if GALLERY_SLIDER %}
+        {% include 'includes/gallery_slider.html' %}
     {% else %}
         {% include 'includes/gallery_collage.html' %}
     {% endif %}
