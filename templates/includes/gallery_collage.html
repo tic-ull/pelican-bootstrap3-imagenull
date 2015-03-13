@@ -6,9 +6,14 @@
         <div id="gallery-{{ album }}" class="masonry well">
             {% for image in images %}
                 <div class="item">
-                    <a href="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}" data-title="{{ image }}" data-toggle="lightbox" data-gallery="{{ album }}" data-parent="#gallery-{{ album }}" >
+                    <figure>
+                    <a target="_blank" href="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}" data-title="{{ image }}" data-toggle="lightbox" data-gallery="{{ album }}" data-parent="#gallery-{{ album }}" >
                         <img src="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}" class="img-responsive">
+                        {% if IMAGE_CAPTIONS[image] %}
+                            <figcaption>{{IMAGE_CAPTIONS[image]}}</figcaption>
+                        {% endif %}
                     </a>
+                    </figure>
                 </div>
             {% endfor %}
         </div>
