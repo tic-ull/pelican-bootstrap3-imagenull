@@ -7,7 +7,12 @@
             {% for image in images %}
                 <div class="item">
                     <figure>
-                    <a class="group1" target="_blank" href="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}" data-title="{{ image }}" data-toggle="lightbox" data-gallery="{{ album }}" data-parent="#gallery-{{ album }}" >
+                    <a class="group1" target="_blank" href="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}"
+                       data-title="{{ image }}" data-toggle="lightbox" data-gallery="{{ album }}" data-parent="#gallery-{{ album }}"
+                        {% if IMAGE_CAPTIONS[image] %}
+                            title="{{IMAGE_CAPTIONS[image]}}"
+                        {% endif %}
+                            >
                         <img src="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}" class="img-responsive">
                         {% if IMAGE_CAPTIONS[image] %}
                             <figcaption>{{IMAGE_CAPTIONS[image]}}</figcaption>
