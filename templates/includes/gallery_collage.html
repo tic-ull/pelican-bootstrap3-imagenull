@@ -1,5 +1,5 @@
 <section id="content" class="body">
-    <h1 class="entry-title">{{ page.title }}</h1>
+    <h1 class="page-header">{{ page.title }}</h1>
     {% import 'includes/translations.html' as translations with context %}
     {% for album, images in page.gallery.iteritems() %}
         <h2 name="{{ album }}">{{ GALLERY_ALBUMS.get(album, album) }}</h2>
@@ -7,7 +7,7 @@
             {% for image in images %}
                 <div class="item">
                     <figure>
-                    <a target="_blank" href="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}" data-title="{{ image }}" data-toggle="lightbox" data-gallery="{{ album }}" data-parent="#gallery-{{ album }}" >
+                    <a class="group1" target="_blank" href="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}" data-title="{{ image }}" data-toggle="lightbox" data-gallery="{{ album }}" data-parent="#gallery-{{ album }}" >
                         <img src="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}" class="img-responsive">
                         {% if IMAGE_CAPTIONS[image] %}
                             <figcaption>{{IMAGE_CAPTIONS[image]}}</figcaption>
@@ -19,3 +19,9 @@
         </div>
     {% endfor %}
 </section>
+
+<link rel="stylesheet" href="theme/colorbox/colorbox.css">
+<script src="theme/colorbox/jquery.colorbox-min.js"></script>
+<script>
+    $(".group1").colorbox({rel:'group1', current: ''});
+</script>
